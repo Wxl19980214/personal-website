@@ -9,6 +9,17 @@ const roles = [
   "Cloud Architect",
 ];
 
+const tags = [
+  { emoji: "🎮", label: "Gaming" },
+  { emoji: "🏀", label: "Basketball" },
+  { emoji: "♠️", label: "Poker" },
+  { emoji: "🎵", label: "Kpop" },
+  { emoji: "⛩️", label: "Anime" },
+  { emoji: "🐯", label: "Born '98 · Year of Tiger" },
+  { emoji: "✍️", label: "Lefty" },
+  { emoji: "🤖", label: "Vibe Coding" },
+];
+
 export default function Hero() {
   const [roleIdx, setRoleIdx] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -29,41 +40,17 @@ export default function Hero() {
       id="about"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Soft background orbs */}
-      <div
-        className="animate-float absolute"
-        style={{
-          width: 500,
-          height: 500,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(167,139,250,0.15) 0%, transparent 70%)",
-          top: "5%",
-          left: "0%",
-          filter: "blur(60px)",
-        }}
-      />
-      <div
-        className="absolute"
-        style={{
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)",
-          bottom: "10%",
-          right: "5%",
-          filter: "blur(60px)",
-          animation: "float 8s ease-in-out infinite reverse",
-        }}
-      />
+      {/* Background orbs */}
+      <div className="animate-float absolute" style={{ width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(167,139,250,0.15) 0%, transparent 70%)", top: "5%", left: "0%", filter: "blur(60px)" }} />
+      <div className="absolute" style={{ width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%)", bottom: "10%", right: "5%", filter: "blur(60px)", animation: "float 8s ease-in-out infinite reverse" }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 w-full">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 w-full py-24">
+        <div className="flex flex-col md:flex-row items-center gap-12">
 
-          {/* Text side */}
+          {/* LEFT: Text */}
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-none" style={{ color: "#1e1b4b" }}>
-              Xilin
-              <br />
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-4 leading-none" style={{ color: "#1e1b4b" }}>
+              Xilin<br />
               <span className="gradient-text">Wang</span>
             </h1>
 
@@ -88,22 +75,10 @@ export default function Hero() {
             </p>
 
             <div className="flex items-center gap-4 flex-wrap md:justify-start justify-center mb-12">
-              <a
-                href="#experience"
-                className="px-6 py-3 rounded-full font-semibold text-sm text-white transition-all duration-200 hover:scale-105"
-                style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)" }}
-              >
+              <a href="#experience" className="px-6 py-3 rounded-full font-semibold text-sm text-white transition-all duration-200 hover:scale-105" style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)" }}>
                 View My Work
               </a>
-              <a
-                href="#contact"
-                className="px-6 py-3 rounded-full font-semibold text-sm transition-all duration-200 hover:scale-105"
-                style={{
-                  background: "white",
-                  border: "1px solid rgba(124,58,237,0.3)",
-                  color: "#7c3aed",
-                }}
-              >
+              <a href="#contact" className="px-6 py-3 rounded-full font-semibold text-sm transition-all duration-200 hover:scale-105" style={{ background: "white", border: "1px solid rgba(124,58,237,0.3)", color: "#7c3aed" }}>
                 Contact
               </a>
             </div>
@@ -123,42 +98,27 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Photo side */}
-          <div className="flex-shrink-0 flex flex-col items-center">
-            <div
-              style={{
-                width: "min(280px, 60vw)",
-                height: "min(280px, 60vw)",
-                borderRadius: "50%",
-                padding: 4,
-                background: "linear-gradient(135deg, #4f46e5, #0891b2)",
-                boxShadow: "0 20px 60px rgba(79,70,229,0.2)",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  position: "relative",
-                  background: "#f1f5f9",
-                }}
-              >
-                <Image
-                  src="/xilin.jpg"
-                  alt="Xilin Wang"
-                  fill
-                  style={{ objectFit: "cover", objectPosition: "center top" }}
-                  priority
-                />
+          {/* RIGHT: Photo + Tags */}
+          <div className="flex-shrink-0 flex flex-col items-center gap-5">
+            {/* Photo */}
+            <div style={{ width: "clamp(160px, 40vw, 300px)", height: "clamp(160px, 40vw, 300px)", borderRadius: "50%", padding: 4, background: "linear-gradient(135deg, #4f46e5, #0891b2)", boxShadow: "0 20px 60px rgba(79,70,229,0.2)" }}>
+              <div style={{ width: "100%", height: "100%", borderRadius: "50%", overflow: "hidden", position: "relative", background: "#f1f5f9" }}>
+                <Image src="/xilin.jpg" alt="Xilin Wang" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
               </div>
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap justify-center gap-2" style={{ maxWidth: 300 }}>
+              {tags.map((tag) => (
+                <span key={tag.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium" style={{ background: "#eef2ff", border: "1px solid #c7d2fe", color: "#3730a3" }}>
+                  {tag.emoji} {tag.label}
+                </span>
+              ))}
             </div>
           </div>
 
         </div>
       </div>
-
     </section>
   );
 }
