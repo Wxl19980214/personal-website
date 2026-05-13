@@ -29,6 +29,11 @@ const skillGroups = [
     icon: "🛠",
     skills: ["Git", "IntelliJ", "VS Code", "Jira", "Swagger", "SonarQube", "Postman"],
   },
+  {
+    label: "AI Tools",
+    icon: "✦",
+    skills: ["Claude", "ChatGPT", "GitHub Copilot", "Cursor", "OpenAI API"],
+  },
 ];
 
 export default function Skills() {
@@ -39,7 +44,7 @@ export default function Skills() {
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: "#7c3aed" }}>
             Expertise
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1e1b4b" }}>
             Technical <span className="gradient-text">Skills</span>
           </h2>
           <div className="glow-line w-24 mx-auto" />
@@ -55,7 +60,7 @@ export default function Skills() {
                 >
                   {group.icon}
                 </span>
-                <h3 className="font-semibold text-white">{group.label}</h3>
+                <h3 className="font-semibold" style={{ color: "#1e1b4b" }}>{group.label}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
